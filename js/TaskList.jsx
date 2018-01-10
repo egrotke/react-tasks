@@ -31,7 +31,7 @@ const TaskList = (props: {
 };
 
 const mapStateToProps = state => ({
-   tasks: state.props || []
+   tasks: state.tasks || []
 });
 const mapDispatchToProps = dispatch => ({
    handleDeleteClick: id => {

@@ -19,6 +19,9 @@ class AddTaskModal extends React.Component {
 
       this.state = { show: false };
    }
+   state: {
+      show: true
+   };
    props: {
       handleAddTask: Function
    };

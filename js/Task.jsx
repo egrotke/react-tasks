@@ -2,7 +2,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import trashcan from './Trash';
 
 const TaskWrapper = styled.div`
    display: block;
@@ -23,12 +22,9 @@ const TaskWrapper = styled.div`
    }
 `;
 
-const TrashIcon = styled.img`
-   height: 14px;
+const TrashIcon = styled.a`
    cursor: pointer;
-   path:hover {
-      fill: #222 !important;
-   }
+   color: #555;
 `;
 
 const Task = (props: { title: string, onDelete: Function }) => (
@@ -38,9 +34,9 @@ const Task = (props: { title: string, onDelete: Function }) => (
             <h5>{props.title}</h5>
          </div>
          <div className="row-buttons">
-            <a onClick={props.onDelete} role="button" tabIndex="-1">
-               <TrashIcon src={trashcan} />
-            </a>
+            <TrashIcon onClick={props.onDelete} role="button" tabIndex="-1">
+               <i className="fa fa-trash-o" aria-hidden="true" />
+            </TrashIcon>
          </div>
       </div>
    </TaskWrapper>
