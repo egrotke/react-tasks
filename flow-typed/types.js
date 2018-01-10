@@ -6,14 +6,9 @@ declare var module: {
   }
 };
 
-export type Show = {
+export type Task = {
   title: string,
-  description: string,
-  year: string,
-  imdbID: string,
-  poster: string,
-  trailer: string,
-  rating?: string
+  id: number
 };
 
 export type State = {
@@ -30,4 +25,6 @@ declare type ActionT<A: ActionType, P> = {|
   payload: P
 |};
 
-export type Action = ActionT<'SET_SEARCH_TERM', string> | ActionT<'ADD_API_DATA', Show>;
+export type Action =
+  | ActionT<'SET_SEARCH_TERM', string>
+  | ActionT<'ADD_API_DATA', Show>;
