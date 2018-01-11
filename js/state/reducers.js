@@ -3,7 +3,8 @@ import {
    DELETE_TASK,
    GET_TASKS,
    SHOW_SAVED_MESSAGE,
-   HIDE_SAVED_MESSAGE
+   HIDE_SAVED_MESSAGE,
+   SHOW_ADD_MODAL
 } from './actions';
 // import axios from 'axios';
 
@@ -21,6 +22,10 @@ const deleteTask = (state, action) => {
 const getTasks = (state, action) => {
    const { tasks } = state;
    return Object.assign({}, state, tasks, action.payload);
+};
+const showAddModal = (state, action) => {
+   console.log('showAddModal', action); // eslint-disable-line no-console
+   return Object.assign({}, state, { showAddTaskModal: action.payload });
 };
 // export function saveTasksToServer(state) {
 //    const { tasks } = state;
@@ -57,6 +62,8 @@ const rootReducer = (state, action) => {
          return showSavedMessage(state);
       case HIDE_SAVED_MESSAGE:
          return hideSavedMessage(state);
+      case SHOW_ADD_MODAL:
+         return showAddModal(state, action);
       default:
          return state;
    }

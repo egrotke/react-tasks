@@ -3,8 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
-import { saveTasks } from './state/actionCreators';
-import AddTaskModal from './AddTaskModal';
+import { saveTasks, showAddModal } from './state/actionCreators';
 
 const SubHeaderWrapper = styled.div`
    display: block;
@@ -15,15 +14,23 @@ const SubHeaderWrapper = styled.div`
       color: #36435a;
    }
 `;
-// <Button>Add task</Button>
-const SubHeader = (props: { handleSaveTasks: Function }) => (
+const SubHeader = (props: {
+   handleSaveTasks: Function,
+   handleShowAddModal: Function
+}) => (
    <SubHeaderWrapper>
       <div className="grid-row">
          <div className="row-title">
             <h2>Tasks</h2>
          </div>
          <div className="row-buttons">
-            <AddTaskModal />
+            <Button
+               className="btn-secondary"
+               onClick={props.handleShowAddModal}
+               type="button"
+            >
+               Add task
+            </Button>
             <Button
                onClick={props.handleSaveTasks}
                type="button"
@@ -39,6 +46,10 @@ const SubHeader = (props: { handleSaveTasks: Function }) => (
 const mapDispatchToProps = dispatch => ({
    handleSaveTasks: () => {
       dispatch(saveTasks());
+   },
+   handleShowAddModal: () => {
+      console.log('dispatch'); // eslint-disable-line no-console
+      dispatch(showAddModal(true));
    }
 });
 

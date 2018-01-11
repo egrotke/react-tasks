@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { deleteTask } from './state/actionCreators';
 import Task from './Task';
 // <CSSTransitionGroup
-// transitionName="item"
-// transitionEnterTimeout={500}
-// transitionLeaveTimeout={300}
-// >
+//                transitionName="item"
+//                transitionEnterTimeout={500}
+//                transitionLeaveTimeout={300}
+//             >
 // </CSSTransitionGroup>
 
 const TaskList = (props: {

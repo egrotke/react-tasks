@@ -6,7 +6,8 @@ import {
    DELETE_TASK,
    SHOW_SAVED_MESSAGE,
    HIDE_SAVED_MESSAGE,
-   GET_TASKS
+   GET_TASKS,
+   SHOW_ADD_MODAL
 } from './actions';
 
 export function addTask(title) {
@@ -18,6 +19,11 @@ export function deleteTask(id) {
 export function getTasks(tasks) {
    return { type: GET_TASKS, payload: tasks };
 }
+export function showAddModal(showOrHide) {
+   console.log('showAddModal', showOrHide); // eslint-disable-line no-console
+   return { type: SHOW_ADD_MODAL, payload: showOrHide };
+}
+
 // export function saveTasks(tasks) {
 //    showSavedMessage();
 //    return { type: SAVE_TASKS, payload: tasks };

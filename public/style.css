@@ -65,6 +65,15 @@ a {
   opacity: 0;
   right: -200px;
 }
+
+.show-modal {
+  opacity: 1;
+  top: 150px;
+}
+.hide-modal {
+  opacity: 0;
+  top: 10px;
+}
 /* Bootstrap modal tweaks */
 .modal-container {
   position: relative;

@@ -7,6 +7,7 @@ import { fetchTasks } from './state/actionCreators';
 import SubHeader from './SubHeader';
 import TaskList from './TaskList';
 import ServerAlert from './ServerAlert';
+import AddTaskModal from './AddTaskModal';
 
 const ContentWrapper = styled.div`
    max-width: 800px;
@@ -37,6 +38,7 @@ class Main extends React.Component {
                <TaskList />
             </ContentWrapper>
             <ServerAlert />
+            <AddTaskModal />
          </div>
       );
    }

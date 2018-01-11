@@ -4,6 +4,7 @@ import rootReducer from './reducers';
 
 const initialState = {
    showAlert: false,
+   showAddTaskModal: false,
    tasks: [
       {
          id: 0,
@@ -25,7 +26,7 @@ const store = createStore(
    compose(
       applyMiddleware(thunk), // middleware
       typeof window === 'object' &&
-      typeof window.devToolsExtension !== 'undefined'
+         typeof window.devToolsExtension !== 'undefined'
          ? window.devToolsExtension()
          : f => f
    )
