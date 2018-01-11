@@ -47,26 +47,30 @@ exports[`App renders correctly 1`] = `
     <div />
   </div>
   <div
-    className="hide sc-bxivhb gfxPLH"
+    className="serler-alert hide"
   >
     <div
-      className="grid-row"
+      className="fail sc-bxivhb gfxPLH"
     >
       <div
-        className="row-title"
+        className="grid-row"
       >
-        Tasks saved succesfully
-      </div>
-      <div
-        className="row-buttons"
-      >
-        <a
-          onClick={[Function]}
-          role="button"
-          tabIndex="-1"
+        <div
+          className="row-title"
         >
-          x
-        </a>
+          
+        </div>
+        <div
+          className="row-buttons"
+        >
+          <a
+            onClick={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            x
+          </a>
+        </div>
       </div>
     </div>
   </div>

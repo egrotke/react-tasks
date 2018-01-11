@@ -28,7 +28,7 @@ a {
 .row-title {
   grid-area: title;
   align-self: center;
-  min-width: 150px;
+  min-width: 180px;
 }
 .row-buttons {
   grid-area: buttons;
@@ -82,6 +82,22 @@ a {
   color: white;
   background-color: #6f7f92;
   border-color: #6f7f92;
+}
+
+/* Server alert styles */
+.server-alert .success {
+   color: #60c796;
+   border: 1px solid #60c796;
+}
+.server-alert .success a {
+   color: #60c796;
+   }
+.server-alert .fail {
+   color: Crimson;
+   border: 1px solid Crimson;
+}
+.server-alert .fail a {
+   color: Crimson;
 }
 .show {
   opacity: 1;

@@ -4,8 +4,8 @@ import store from './store';
 import {
    ADD_TASK,
    DELETE_TASK,
-   SHOW_SAVED_MESSAGE,
-   HIDE_SAVED_MESSAGE,
+   SHOW_SERVER_ALERT,
+   HIDE_SERVER_ALERT,
    ADD_TASKS_FROM_API,
    SHOW_ADD_MODAL
 } from './actions';
@@ -23,8 +23,8 @@ export function showAddModal(showOrHide) {
    return { type: SHOW_ADD_MODAL, payload: showOrHide };
 }
 
-export function showSavedMessage() {
-   return { type: SHOW_SAVED_MESSAGE };
+export function showServerAlert(result) {
+   return { type: SHOW_SERVER_ALERT, payload: result };
 }
 export function saveTasks() {
    const { tasks } = store.getState();
@@ -34,15 +34,28 @@ export function saveTasks() {
             tasks
          })
          .then(() => {
-            dispatch(showSavedMessage());
+            dispatch(
+               showServerAlert({
+                  show: true,
+                  success: true,
+                  message: 'Tasks saved successfully.'
+               })
+            );
          })
          .catch(error => {
+            dispatch(
+               showServerAlert({
+                  show: true,
+                  success: false,
+                  message: 'Error: tasks not saved!'
+               })
+            );
             console.error('axios error', error); // eslint-disable-line no-console
          });
    };
 }
 export function hideSavedMessage() {
-   return { type: HIDE_SAVED_MESSAGE };
+   return { type: HIDE_SERVER_ALERT };
 }
 // export function fetchTasks() {
 //    return dispatch => {

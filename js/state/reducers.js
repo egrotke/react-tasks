@@ -3,8 +3,8 @@ import {
    ADD_TASK,
    DELETE_TASK,
    ADD_TASKS_FROM_API,
-   SHOW_SAVED_MESSAGE,
-   HIDE_SAVED_MESSAGE,
+   SHOW_SERVER_ALERT,
+   HIDE_SERVER_ALERT,
    SHOW_ADD_MODAL
 } from './actions';
 
@@ -39,11 +39,20 @@ const getTasks = (state, action) => {
 const showAddModal = (state, action) =>
    Object.assign({}, state, { showAddTaskModal: action.payload });
 
-const showSavedMessage = state =>
-   Object.assign({}, state, { changesMade: false }, { showAlert: true });
+const showServerAlert = (state, action) => {
+   const dirty = !action.payload.success;
+   return Object.assign(
+      {},
+      state,
+      { changesMade: dirty },
+      { serverAlert: action.payload }
+   );
+};
 
-const hideSavedMessage = state =>
-   Object.assign({}, state, { showAlert: false });
+const hideServerAlert = state =>
+   Object.assign({}, state, {
+      serverAlert: { show: false, success: false, message: '' }
+   });
 
 const rootReducer = (state, action) => {
    switch (action.type) {
@@ -53,10 +62,10 @@ const rootReducer = (state, action) => {
          return deleteTask(state, action);
       case ADD_TASKS_FROM_API:
          return getTasks(state, action);
-      case SHOW_SAVED_MESSAGE:
-         return showSavedMessage(state);
-      case HIDE_SAVED_MESSAGE:
-         return hideSavedMessage(state);
+      case SHOW_SERVER_ALERT:
+         return showServerAlert(state, action);
+      case HIDE_SERVER_ALERT:
+         return hideServerAlert(state);
       case SHOW_ADD_MODAL:
          return showAddModal(state, action);
       default:

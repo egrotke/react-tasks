@@ -7,7 +7,7 @@ test('SHOW_ADD_MODAL', () => {
     {
       changesMade: false,
       showAddTaskModal: false,
-      showAlert: false,
+      serverAlert: { show: false, success: false, message: '' },
       tasks: []
     },
     { type: 'SHOW_ADD_MODAL', payload: true }
@@ -15,20 +15,36 @@ test('SHOW_ADD_MODAL', () => {
   expect(state).toEqual({
     changesMade: false,
     showAddTaskModal: true,
-    showAlert: false,
+    serverAlert: { show: false, success: false, message: '' },
     tasks: []
   });
 });
 
-test('SHOW_SAVED_MESSAGE', () => {
+test('SHOW_SERVER_ALERT', () => {
   const state = reducers(
-    { changesMade: true, showAddTaskModal: false, showAlert: false, tasks: [] },
-    { type: 'SHOW_SAVED_MESSAGE' }
+    {
+      changesMade: true,
+      showAddTaskModal: false,
+      serverAlert: { show: false, success: false, message: '' },
+      tasks: []
+    },
+    {
+      type: 'SHOW_SERVER_ALERT',
+      payload: {
+        show: true,
+        success: true,
+        message: 'Tasks saved successfully.'
+      }
+    }
   );
   expect(state).toEqual({
     changesMade: false,
     showAddTaskModal: false,
-    showAlert: true,
+    serverAlert: {
+      show: true,
+      success: true,
+      message: 'Tasks saved successfully.'
+    },
     tasks: []
   });
 });
@@ -38,7 +54,7 @@ test('ADD_TASK', () => {
     {
       changesMade: false,
       showAddTaskModal: false,
-      showAlert: false,
+      serverAlert: { show: false, success: false, message: '' },
       tasks: []
     },
     {
@@ -54,7 +70,7 @@ test('DELETE_TASK', () => {
     {
       changesMade: false,
       showAddTaskModal: false,
-      showAlert: false,
+      serverAlert: { show: false, success: false, message: '' },
       tasks: [
         {
           title: 'Grocery shopping',
@@ -70,7 +86,7 @@ test('DELETE_TASK', () => {
   expect(state).toEqual({
     changesMade: true,
     showAddTaskModal: false,
-    showAlert: false,
+    serverAlert: { show: false, success: false, message: '' },
     tasks: []
   });
 });

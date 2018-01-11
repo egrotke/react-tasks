@@ -3,8 +3,9 @@ import thunk from 'redux-thunk'; // import
 import rootReducer from './reducers';
 
 const initialState = {
-   showAlert: false,
+   serverAlert: { show: false, success: false, message: '' },
    showAddTaskModal: false,
+   changesMade: false,
    tasks: []
 };
 const store = createStore(

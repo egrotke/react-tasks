@@ -10,6 +10,11 @@ export type Task = {
   title: string,
   id: number
 };
+export type ServerAlert = {
+  show: boolean,
+  success: boolean,
+  message: string
+};
 
 export type State = {
   searchTerm: string,

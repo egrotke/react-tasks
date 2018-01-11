@@ -25,25 +25,33 @@ const ServerAlertWrapper = styled.div`
 `;
 
 const ServerAlert = (props: {
-   showAlert?: boolean,
+   show: boolean,
+   success: boolean,
+   message: string,
    handleDismiss: Function
 }) => (
-   <ServerAlertWrapper className={props.showAlert ? 'show' : 'hide'}>
-      <div className="grid-row">
-         <div className="row-title">Tasks saved succesfully</div>
-         <div className="row-buttons">
-            <a onClick={props.handleDismiss} role="button" tabIndex="-1">
-               x
-            </a>
+   <div className={props.show ? 'server-alert show' : 'serler-alert hide'}>
+      <ServerAlertWrapper className={props.success ? 'success' : 'fail'}>
+         <div className="grid-row">
+            <div className="row-title">{props.message}</div>
+            <div className="row-buttons">
+               <a onClick={props.handleDismiss} role="button" tabIndex="-1">
+                  x
+               </a>
+            </div>
          </div>
-      </div>
-   </ServerAlertWrapper>
+      </ServerAlertWrapper>
+   </div>
 );
 
 ServerAlert.defaultProps = {
-   showAlert: false
+   serverAlert: false
 };
-const mapStateToProps = state => ({ showAlert: state.showAlert });
+const mapStateToProps = state => ({
+   show: state.serverAlert.show,
+   success: state.serverAlert.success,
+   message: state.serverAlert.message
+});
 const mapDispatchToProps = (dispatch: Function) => ({
    handleDismiss: () => {
       dispatch(hideSavedMessage());
