@@ -44,6 +44,9 @@ class AddTaskModal extends React.Component {
       this.props.handleAddTask(e);
       this.props.handleHideModal();
    };
+   handleFocus = e => {
+      e.target.select();
+   };
    render() {
       return (
          <AddModal
@@ -59,7 +62,17 @@ class AddTaskModal extends React.Component {
             </header>
             <Main>
                <form onSubmit={this.handleSubmit}>
-                  <input type="text" name="task" className="input-text" />
+                  <input
+                     ref={input =>
+                        input &&
+                        input.focus() &&
+                        input.setSelectionRange(0, input.value.length)}
+                     onFocus={this.handleFocus}
+                     type="text"
+                     name="task"
+                     className="input-text"
+                     defaultValue="New task"
+                  />
                   <input type="submit" className="btn btn-success" />
                </form>
             </Main>

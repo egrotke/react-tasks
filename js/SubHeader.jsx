@@ -15,7 +15,8 @@ const SubHeaderWrapper = styled.div`
 `;
 const SubHeader = (props: {
    handleSaveTasks: Function,
-   handleShowAddModal: Function
+   handleShowAddModal: Function,
+   stateMatchesServer: Boolean
 }) => (
    <SubHeaderWrapper>
       <div className="grid-row">
@@ -33,6 +34,7 @@ const SubHeader = (props: {
             <button
                onClick={props.handleSaveTasks}
                type="button"
+               disabled={!props.stateMatchesServer}
                className="btn btn-success"
             >
                Save
@@ -41,6 +43,10 @@ const SubHeader = (props: {
       </div>
    </SubHeaderWrapper>
 );
+
+const mapStateToProps = state => ({
+   stateMatchesServer: state.changesMade
+});
 
 const mapDispatchToProps = dispatch => ({
    handleSaveTasks: () => {
@@ -51,4 +57,4 @@ const mapDispatchToProps = dispatch => ({
    }
 });
 
-export default connect(null, mapDispatchToProps)(SubHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(SubHeader);

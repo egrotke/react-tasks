@@ -35,6 +35,7 @@ exports[`App renders correctly 1`] = `
           </button>
           <button
             className="btn btn-success"
+            disabled={true}
             onClick={[Function]}
             type="button"
           >
@@ -88,7 +89,9 @@ exports[`App renders correctly 1`] = `
       >
         <input
           className="input-text"
+          defaultValue="New task"
           name="task"
+          onFocus={[Function]}
           type="text"
         />
         <input

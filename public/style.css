@@ -67,6 +67,12 @@ a {
   background-color: #20aa57;
   border-color: #20aa57;
 }
+.btn.btn-success:disabled {
+  color: white;
+  background-color: #c3f0db;
+  border-color: #c3f0db;
+  cursor:not-allowed;
+}
 .btn.btn-secondary {
   color: white;
   background-color: #8f9fb2;

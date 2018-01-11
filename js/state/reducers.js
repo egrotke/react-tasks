@@ -14,13 +14,23 @@ const addTask = (state, action) => {
    }
    const { tasks } = state;
    const task = { id: uid(tasks.length), title: action.payload };
-   return Object.assign({}, state, { tasks: [task, ...tasks] });
+   return Object.assign(
+      {},
+      state,
+      { changesMade: true },
+      { tasks: [task, ...tasks] }
+   );
 };
 const deleteTask = (state, action) => {
    const { tasks } = state;
-   return Object.assign({}, state, {
-      tasks: tasks.filter(task => task.id !== action.payload)
-   });
+   return Object.assign(
+      {},
+      state,
+      { changesMade: true },
+      {
+         tasks: tasks.filter(task => task.id !== action.payload)
+      }
+   );
 };
 const getTasks = (state, action) => {
    const { tasks } = state;
@@ -29,7 +39,8 @@ const getTasks = (state, action) => {
 const showAddModal = (state, action) =>
    Object.assign({}, state, { showAddTaskModal: action.payload });
 
-const showSavedMessage = state => Object.assign({}, state, { showAlert: true });
+const showSavedMessage = state =>
+   Object.assign({}, state, { changesMade: false }, { showAlert: true });
 
 const hideSavedMessage = state =>
    Object.assign({}, state, { showAlert: false });
