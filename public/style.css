@@ -34,25 +34,43 @@ a {
   overflow: hidden;
 }
 
-/* Bootstrap component tweaks */
+input {
+  line-height: 3em;
+}
+/* Bootstrap button with tweaks */
 .btn {
+  display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #999;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   margin: 0 8px;
   cursor: pointer;
 }
-.btn.btn-success.btn-default {
+.btn.btn-success {
   background-color: #60c796;
   border-color: #60c796;
 }
-.btn.btn-success.btn-default:hover {
+.btn.btn-success:hover {
   background-color: #20aa57;
   border-color: #20aa57;
 }
-.btn.btn-secondary.btn-default {
+.btn.btn-secondary {
   color: white;
   background-color: #8f9fb2;
   border-color: #8f9fb2;
 }
-.btn.btn-secondary.btn-default:hover {
+.btn.btn-secondary:hover {
   color: white;
   background-color: #6f7f92;
   border-color: #6f7f92;
@@ -68,33 +86,19 @@ a {
 
 .show-modal {
   opacity: 1;
-  top: 150px;
+  top: 250px;
 }
 .hide-modal {
   opacity: 0;
   top: 10px;
 }
-/* Bootstrap modal tweaks */
-.modal-container {
-  position: relative;
+
+
+#add-task-modal .input-text {
+  width: 350px;
 }
-.modal-container .modal,
-.modal-container .modal-backdrop {
-  position: absolute;
-}
-#add-task-modal .modal-body {
-  margin-left: 80px;
-}
-#add-task-modal .modal-body .input-text {
-  width: 250px;
-}
-.modal-header .close {
-  margin-top: 1px;
-  margin-left: 10px;
-}
-#add-task-modal {
-  margin-top: 200px;
-}
+
+
 
 /*CSS Transition styles*/
 .item-enter {

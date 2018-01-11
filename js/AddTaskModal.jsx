@@ -2,7 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
 import { addTask, showAddModal } from './state/actionCreators';
 
 const AddModalWrapper = styled.div`
@@ -16,7 +15,8 @@ const AddModal = styled.div`
    display: block;
    position: fixed;
    background-color: white;
-   padding: 20px;
+   padding: 15px 20px;
+   min-width: 450px;
    margin: 10px auto;
    border: 1px solid #ebedf1;
    border-radius: 4px;
@@ -31,6 +31,13 @@ const AddModal = styled.div`
    }
    transition: all 0.5s ease;
 `;
+const Main = styled.div`
+   text-align: center;
+   `;
+const Footer = styled.div`
+   margin-top:20px;
+   text-align: right;
+   `;
 
 class AddTaskModal extends React.Component {
    props: {
@@ -47,24 +54,30 @@ class AddTaskModal extends React.Component {
       return (
          <AddModalWrapper>
             <AddModal
+               id="add-task-modal"
                className={
                   this.props.showAddTaskModal ? 'show-modal' : 'hide-modal'
                }
             >
-               <header closeButton>
+               <header>
                   <h5 id="contained-modal-title">
                      Add task
                   </h5>
                </header>
-               <main>
+               <Main>
                   <form onSubmit={this.handleSubmit}>
                      <input type="text" name="task" className="input-text" />
-                     <input type="submit" />
+                     <input type="submit" className="btn btn-success" />
                   </form>
-               </main>
-               <footer>
-                  <Button onClick={this.props.handleHideModal}>Close</Button>
-               </footer>
+               </Main>
+               <Footer>
+                  <button
+                     className="btn btn-secondary"
+                     onClick={this.props.handleHideModal}
+                  >
+                     Close
+                  </button>
+               </Footer>
             </AddModal>
          </AddModalWrapper>
       );

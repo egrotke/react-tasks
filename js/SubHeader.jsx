@@ -2,8 +2,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import { saveTasks, showAddModal } from './state/actionCreators';
+
+// const Button = styled.div`
+//    padding
+
+// `;
 
 const SubHeaderWrapper = styled.div`
    display: block;
@@ -24,20 +29,20 @@ const SubHeader = (props: {
             <h2>Tasks</h2>
          </div>
          <div className="row-buttons">
-            <Button
-               className="btn-secondary"
+            <button
+               className="btn btn-secondary"
                onClick={props.handleShowAddModal}
                type="button"
             >
                Add task
-            </Button>
-            <Button
+            </button>
+            <button
                onClick={props.handleSaveTasks}
                type="button"
-               className="btn-success"
+               className="btn btn-success"
             >
                Save
-            </Button>
+            </button>
          </div>
       </div>
    </SubHeaderWrapper>
