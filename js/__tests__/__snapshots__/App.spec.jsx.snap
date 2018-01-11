@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+<div
+  className="index"
+>
+  <div
+    className="sc-htoDjs hoPrez"
+  />
+  <div
+    className="sc-gzVnrw EdtfF"
+  >
+    <div
+      className="sc-bdVaJa fyWJxE"
+    >
+      <div
+        className="grid-row"
+      >
+        <div
+          className="row-title"
+        >
+          <h2>
+            Tasks
+          </h2>
+        </div>
+        <div
+          className="row-buttons"
+        >
+          <button
+            className="btn btn-secondary"
+            onClick={[Function]}
+            type="button"
+          >
+            Add task
+          </button>
+          <button
+            className="btn btn-success"
+            onClick={[Function]}
+            type="button"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+    <div />
+  </div>
+  <div
+    className="hide sc-bxivhb gfxPLH"
+  >
+    <div
+      className="grid-row"
+    >
+      <div
+        className="row-title"
+      >
+        Tasks saved succesfully
+      </div>
+      <div
+        className="row-buttons"
+      >
+        <a
+          onClick={[Function]}
+          role="button"
+          tabIndex="-1"
+        >
+          x
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="hide-modal sc-ifAKCX ddThWS"
+    id="add-task-modal"
+  >
+    <header>
+      <h5
+        id="contained-modal-title"
+      >
+        Add task
+      </h5>
+    </header>
+    <div
+      className="sc-EHOje hQFTiX"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="input-text"
+          name="task"
+          type="text"
+        />
+        <input
+          className="btn btn-success"
+          type="submit"
+        />
+      </form>
+    </div>
+    <div
+      className="sc-bZQynM fkwQlg"
+    >
+      <button
+        className="btn btn-secondary"
+        onClick={[Function]}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+`;
