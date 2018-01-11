@@ -34,9 +34,7 @@ a {
   overflow: hidden;
 }
 
-input {
-  line-height: 3em;
-}
+
 /* Bootstrap button with tweaks */
 .btn {
   display: inline-block;
@@ -93,9 +91,15 @@ input {
   top: 10px;
 }
 
-
+input {
+  line-height: 1em;
+}
+form {
+  display: flex;
+}
 #add-task-modal .input-text {
   width: 350px;
+  font-size: 2em;
 }
 
 
