@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "api": "node ratingsAPI.js",
     "format": "prettier --list-different --single-quote --print-width=120 webpack.config.js \"js/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "watch": "webpack --watch",
@@ -36,8 +35,10 @@
     "react-transition-group": "^2.2.1",
     "redux": "3.6.0",
     "redux-thunk": "2.2.0",
+    "sinon": "^4.1.4",
     "styled-components": "2.0.0",
     "svg-inline-react": "^3.0.0",
+    "uid": "0.0.2",
     "webpack": "2.6.1",
     "webpack-dev-middleware": "1.10.2",
     "webpack-hot-middleware": "2.18.0"

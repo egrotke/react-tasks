@@ -1,15 +1,8 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-// import { CSSTransitionGroup } from 'react-transition-group';
 import { deleteTask } from './state/actionCreators';
 import Task from './Task';
-// <CSSTransitionGroup
-//                transitionName="item"
-//                transitionEnterTimeout={500}
-//                transitionLeaveTimeout={300}
-//             >
-// </CSSTransitionGroup>
 
 const TaskList = (props: {
    handleDeleteClick: Function,
@@ -19,12 +12,13 @@ const TaskList = (props: {
    return (
       <div>
          {props.tasks.map((taskItem: Task) => (
-            <Task
-               {...taskItem}
-               // key={taskItem.uid}
-               id={taskItem.id}
-               onDelete={() => handleDelete(taskItem.id)}
-            />
+            <div>
+               <Task
+                  {...taskItem}
+                  key={taskItem.id}
+                  onDelete={() => handleDelete(taskItem.id)}
+               />
+            </div>
          ))}
       </div>
    );
@@ -38,4 +32,5 @@ const mapDispatchToProps = dispatch => ({
       dispatch(deleteTask(id));
    }
 });
+export const Unwrapped = TaskList;
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

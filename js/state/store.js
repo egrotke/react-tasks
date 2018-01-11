@@ -5,20 +5,7 @@ import rootReducer from './reducers';
 const initialState = {
    showAlert: false,
    showAddTaskModal: false,
-   tasks: [
-      {
-         id: 0,
-         title: 'Buy milk.'
-      },
-      {
-         id: 1,
-         title: 'Walk the dog.'
-      },
-      {
-         id: 2,
-         title: 'Groceries.'
-      }
-   ]
+   tasks: []
 };
 const store = createStore(
    rootReducer,

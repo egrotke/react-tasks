@@ -4,20 +4,14 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { addTask, showAddModal } from './state/actionCreators';
 
-const AddModalWrapper = styled.div`
-   display: flex;
-   height: 100%;
-   width: 100%;
-   align-items: center;
-    justify-content: center;
-   `;
 const AddModal = styled.div`
    display: block;
    position: fixed;
    background-color: white;
    padding: 15px 20px;
-   min-width: 450px;
-   margin: 10px auto;
+   width: 420px;
+   left: 50%;
+   margin-left: -220px;
    border: 1px solid #ebedf1;
    border-radius: 4px;
    -webkit-box-shadow: 1px 2px 1px 0px rgba(222, 222, 222, 1);
@@ -52,34 +46,32 @@ class AddTaskModal extends React.Component {
    };
    render() {
       return (
-         <AddModalWrapper>
-            <AddModal
-               id="add-task-modal"
-               className={
-                  this.props.showAddTaskModal ? 'show-modal' : 'hide-modal'
-               }
-            >
-               <header>
-                  <h5 id="contained-modal-title">
-                     Add task
-                  </h5>
-               </header>
-               <Main>
-                  <form onSubmit={this.handleSubmit}>
-                     <input type="text" name="task" className="input-text" />
-                     <input type="submit" className="btn btn-success" />
-                  </form>
-               </Main>
-               <Footer>
-                  <button
-                     className="btn btn-secondary"
-                     onClick={this.props.handleHideModal}
-                  >
-                     Close
-                  </button>
-               </Footer>
-            </AddModal>
-         </AddModalWrapper>
+         <AddModal
+            id="add-task-modal"
+            className={
+               this.props.showAddTaskModal ? 'show-modal' : 'hide-modal'
+            }
+         >
+            <header>
+               <h5 id="contained-modal-title">
+                  Add task
+               </h5>
+            </header>
+            <Main>
+               <form onSubmit={this.handleSubmit}>
+                  <input type="text" name="task" className="input-text" />
+                  <input type="submit" className="btn btn-success" />
+               </form>
+            </Main>
+            <Footer>
+               <button
+                  className="btn btn-secondary"
+                  onClick={this.props.handleHideModal}
+               >
+                  Close
+               </button>
+            </Footer>
+         </AddModal>
       );
    }
 }
@@ -89,9 +81,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
    handleAddTask: e => {
       e.preventDefault();
-
       const title = e.target.querySelector('input').value;
-      dispatch(addTask(title));
+      if (title) {
+         dispatch(addTask(title));
+      }
    },
    handleHideModal: () => {
       dispatch(showAddModal(false));

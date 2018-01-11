@@ -1,9 +1,8 @@
 // @flow
 import React from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { fetchTasks } from './state/actionCreators';
+import fetchTasks from './state/asyncActions';
 import SubHeader from './SubHeader';
 import TaskList from './TaskList';
 import ServerAlert from './ServerAlert';
@@ -48,12 +47,10 @@ const mapStateToProps = state => ({
    tasks: state.tasks
 });
 
-const mapDispatchToProps = dispatch =>
-   bindActionCreators(
-      {
-         getTasks: fetchTasks
-      },
-      dispatch
-   );
+const mapDispatchToProps = (dispatch: Function) => ({
+   getTasks() {
+      dispatch(fetchTasks());
+   }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

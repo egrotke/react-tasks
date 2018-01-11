@@ -1,45 +1,62 @@
 // @flow
 
-import reducers from '../reducers';
+import reducers from '../state/reducers';
 
-test('@@INIT', () => {
-  const state = reducers(undefined, {});
-  expect(state).toEqual({ searchTerm: '', apiData: {} });
-});
-
-test('SET_SEARCH_TERM', () => {
-  const state = reducers({ searchTerm: '', apiData: {} }, { type: 'SET_SEARCH_TERM', payload: 'orange' });
-  expect(state).toEqual({ searchTerm: 'orange', apiData: {} });
-});
-
-test('ADD_API_DATA', () => {
+test('SHOW_ADD_MODAL', () => {
   const state = reducers(
-    { searchTerm: 'orange', apiData: {} },
+    { showAddTaskModal: false, showAlert: false, tasks: [] },
+    { type: 'SHOW_ADD_MODAL', payload: true }
+  );
+  expect(state).toEqual({
+    showAddTaskModal: true,
+    showAlert: false,
+    tasks: []
+  });
+});
+
+test('SHOW_SAVED_MESSAGE', () => {
+  const state = reducers(
+    { showAddTaskModal: false, showAlert: false, tasks: [] },
+    { type: 'SHOW_SAVED_MESSAGE' }
+  );
+  expect(state).toEqual({
+    showAddTaskModal: false,
+    showAlert: true,
+    tasks: []
+  });
+});
+
+test('ADD_TASK', () => {
+  const state = reducers(
+    { showAddTaskModal: false, showAlert: false, tasks: [] },
     {
-      type: 'ADD_API_DATA',
-      payload: {
-        rating: '0.8',
-        title: 'Orange Is the New Black',
-        year: '2013–',
-        description: 'The story of Piper Chapman, a woman in her thirties who is sentenced to fifteen months in prison after being convicted of a decade-old crime of transporting money for her drug-dealing girlfriend.',
-        poster: 'oitnb.jpg',
-        imdbID: 'tt2372162',
-        trailer: 'th8WT_pxGqg'
-      }
+      type: 'ADD_TASK',
+      payload: 'Grocery shopping'
+    }
+  );
+  expect(state.tasks[0].title).toEqual('Grocery shopping');
+});
+
+test('DELETE_TASK', () => {
+  const state = reducers(
+    {
+      showAddTaskModal: false,
+      showAlert: false,
+      tasks: [
+        {
+          title: 'Grocery shopping',
+          id: '23fefe324'
+        }
+      ]
+    },
+    {
+      type: 'DELETE_TASK',
+      payload: '23fefe324'
     }
   );
   expect(state).toEqual({
-    searchTerm: 'orange',
-    apiData: {
-      tt2372162: {
-        rating: '0.8',
-        title: 'Orange Is the New Black',
-        year: '2013–',
-        description: 'The story of Piper Chapman, a woman in her thirties who is sentenced to fifteen months in prison after being convicted of a decade-old crime of transporting money for her drug-dealing girlfriend.',
-        poster: 'oitnb.jpg',
-        imdbID: 'tt2372162',
-        trailer: 'th8WT_pxGqg'
-      }
-    }
+    showAddTaskModal: false,
+    showAlert: false,
+    tasks: []
   });
 });

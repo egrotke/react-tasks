@@ -24,7 +24,6 @@ const TaskWrapper = styled.div`
 
 const TrashIcon = styled.a`
    cursor: pointer;
-   color: #555;
 `;
 
 const Task = (props: { title: string, onDelete: Function }) => (
@@ -35,7 +34,7 @@ const Task = (props: { title: string, onDelete: Function }) => (
          </div>
          <div className="row-buttons">
             <TrashIcon onClick={props.onDelete} role="button" tabIndex="-1">
-               <i className="fa fa-trash-o" aria-hidden="true" />
+               <img src="/public/images/trashcan.png" alt="delete" />
             </TrashIcon>
          </div>
       </div>

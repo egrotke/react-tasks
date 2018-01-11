@@ -2,13 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-// import { Button } from 'react-bootstrap';
 import { saveTasks, showAddModal } from './state/actionCreators';
-
-// const Button = styled.div`
-//    padding
-
-// `;
 
 const SubHeaderWrapper = styled.div`
    display: block;
@@ -53,7 +47,6 @@ const mapDispatchToProps = dispatch => ({
       dispatch(saveTasks());
    },
    handleShowAddModal: () => {
-      console.log('dispatch'); // eslint-disable-line no-console
       dispatch(showAddModal(true));
    }
 });

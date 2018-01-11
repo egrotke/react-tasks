@@ -24,9 +24,6 @@ const ServerAlertWrapper = styled.div`
    }
 `;
 
-// class ServerAlert extends React.Component {
-//    render() {
-//       return (
 const ServerAlert = (props: {
    showAlert?: boolean,
    handleDismiss: Function
